@@ -207,10 +207,27 @@ const crawl = async opt => {
    * @returns {Promise<string>}
    */
   const fetchPage = async pageUrl => {
-    const route = pageUrl.replace(basePath, "");
+    let route ;
+    let firstRoute = pageUrl.replace(basePath, "");
+    if(firstRoute.startsWith("/blog/") || firstRoute.startsWith("/cars/"))
+    {
+      
+      const n = firstRoute.lastIndexOf('/');
+      const result = firstRoute.substring(n + 1);
+      const replacement = decodeURI(result);
 
+      const replaced = firstRoute.substring(0, n)+"/"+ replacement;
+      
+      console.log("last index :",decodeURI(result));
+      console.log("new route :",replaced);
+      route = replaced;
+    }
+    else{
+      route = pageUrl.replace(basePath, "");
+    }
     let skipExistingFile = false;
     const routePath = route.replace(/\//g, path.sep);
+    console.log("routePath :",routePath);
     const { ext } = path.parse(routePath);
     if (ext !== ".html" && ext !== "") {
       const filePath = path.join(sourceDir, routePath);
