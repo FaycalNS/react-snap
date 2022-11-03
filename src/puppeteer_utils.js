@@ -218,8 +218,8 @@ const crawl = async opt => {
 
       const replaced = firstRoute.substring(0, n)+"/"+ replacement;
       
-      console.log("last index :",decodeURI(result));
-      console.log("new route :",replaced);
+      //console.log("last index :",decodeURI(result));
+      //console.log("new route :",replaced);
       route = replaced;
     }
     else{
@@ -227,7 +227,7 @@ const crawl = async opt => {
     }
     let skipExistingFile = false;
     const routePath = route.replace(/\//g, path.sep);
-    console.log("routePath :",routePath);
+    //console.log("routePath :",routePath);
     const { ext } = path.parse(routePath);
     if (ext !== ".html" && ext !== "") {
       const filePath = path.join(sourceDir, routePath);
