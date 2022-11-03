@@ -37,7 +37,7 @@ const enableLogging = opt => {
   page.on("console", msg => {
     const text = msg.text();
     if (text === "JSHandle@object") {
-      await Promise.all(msg.args().map(objectToJson)).then(args =>
+      Promise.all(msg.args().map(objectToJson)).then(args =>
         console.log(`💬  console.log at ${route}:`, ...args)
         console.log("Hna 1")
       );
