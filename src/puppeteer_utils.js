@@ -38,17 +38,14 @@ const enableLogging = opt => {
     const text = msg.text();
     if (text === "JSHandle@object") {
       Promise.all(msg.args().map(objectToJson)).then(args =>
-        console.log(`💬  console.log at ${route}:`, ...args)
-        console.log("Hna 1")
+        console.log(`💬  console.log 1 at ${route}:`, ...args)
       );
     } else if (text === "JSHandle@error") {
       Promise.all(msg.args().map(errorToString)).then(args =>
-        console.log(`💬  console.log at ${route}:`, ...args)
-        console.log("Hna 2")
+        console.log(`💬  console.log at 2 ${route}:`, ...args)
       );
     } else {
-      console.log(`️️️💬  console.log at ${route}:`, text);
-      console.log("Hna 3")
+      console.log(`️️️💬  console.log at 3 ${route}:`, text);
     }
   });
   page.on("error", msg => {
