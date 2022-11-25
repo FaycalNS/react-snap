@@ -26,7 +26,7 @@ const defaultOptions = {
   puppeteer: {
     cache: true
   },
-  puppeteerArgs: ['--enable-experimental-web-platform-features'],
+  puppeteerArgs: ['--enable-experimental-web-platform-features','--allow-file-access-from-files'],
   puppeteerExecutablePath: undefined,
   puppeteerIgnoreHTTPSErrors: false,
   publicPath: "/",
