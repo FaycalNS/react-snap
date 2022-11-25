@@ -26,7 +26,7 @@ const defaultOptions = {
   puppeteer: {
     cache: true
   },
-  puppeteerArgs: [],
+  puppeteerArgs: ['--enable-experimental-web-platform-features'],
   puppeteerExecutablePath: undefined,
   puppeteerIgnoreHTTPSErrors: false,
   publicPath: "/",
